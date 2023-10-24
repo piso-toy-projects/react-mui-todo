@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import Todo from './feats/Todo';
-import Todos from './feats/Todo';
+import Todos from './feats/Todos';
 
 function App() {
     return (
