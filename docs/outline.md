@@ -10,8 +10,8 @@
 
 -   10월 25일: 메인페이지와 Todo, Todos 마크업, alarm 기능(컴포넌트)
 -   10월 26일: `Todo`의 생성, 수정, 삭제 개발
--   10월 27일: `Todos`의 생성, 수정, 삭제 개발
--   10월 28일: `Todos`의 검사 (삭제 가능여부, 수정 가능여부) 개발
+-   10월 27일: `TodosList`의 생성, 수정, 삭제 개발
+-   10월 28일: `TodosList`의 검사 (삭제 가능여부, 수정 가능여부) 개발
 -   10월 29일: 리팩토링
 
 #### 10월 30일 ~ 10월 31일: 코드 설명서? 앱 설명서 작성
@@ -41,7 +41,8 @@
 
 -   하루 업무들을 정리한 Todo들을 저장하여, 기록을 볼 수도 있고, 하루를 효율적으로 나눌 수 있게 만들기
 -   `Todo` `하루의 업무량을 나눈 하나의 단위`로 시간 당 업무량 이기도 하다.
--   `Todos` 1. 저장 버튼을 눌러 그날의 투두를 저장할 수 있다. 1. 한 번 저장된 투두는 수정불가하고, 기록을 남겨둔다.
+-   `TodosList`
+    1. 저장 버튼을 눌러 그날의 투두를 저장할 수 있다. 1. 한 번 저장된 투두는 수정불가하고, 기록을 남겨둔다.
 
 ## 요구사항
 
@@ -49,32 +50,30 @@
 
 ```js
 todo = {
-    order: number,
-    todo: '100자 이하의 11pt 을지로체인 문자열',
+    time: number, // Todo 시작 시간
+    todo: '100자 이하의 11pt 을지로체인 문자열', // Todo의 내용
+    checked: boolean, // Todo의 완료 여부
 };
 ```
 
--   `Todo`를 생성, 수정, 삭제할 수 있다.
+1.  `Todo`를 체크박스로 완료여부를 확인 [ ]
 
-1.  `Todo`를 생성 `addTodo`
-2.  `Todo`를 수정 `updateTodo`
-3.  `Todo`를 삭제 `deleteTodo`
-
-### `Todos`
+### `TodosList`
 
 ```js
-todos = {
-    id: unique_number,
-    todos: [todo, todo, ...todos],
-};
+todosList = [... ,{
+    id: The day, // Todo 작성 당일
+    todos: [todo, todo, ...todos], // todo의 배열
+}];
 ```
 
--   `Todos`를 localStorage에 저장, 삭제하여 기록을 관리할 수 있다.
-    1.  `Todos`를 JSON객체로 localStorage에 저장한다.
-    2.  저장된 `Todos`는 당일에는 수정이 가능 `saveTodos`
-    3.  저장된 `Todos`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos`
-    4.  오래된 `Todos`는 삭제 가능 `deleteOldTodos`
-    5.  **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos`
+-   `TodosList`를 localStorage에 저장, 삭제하여 기록을 관리할 수 있다. [ ]
+    1.  `TodosList`를 JSON객체로 localStorage에 저장한다. [ ]
+    1.  `TodosList`를 5분마다 자동저장한다. [ ]
+    1.  저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos` [ ]
+    1.  저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos` [ ]
+    1.  오래된 `TodosList`는 삭제 가능 `deleteOldTodos` [ ]
+    1.  **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos` [ ]
 
 ### `Alaram`
 
@@ -85,9 +84,9 @@ alarms = {};
 ```
 
 -   알람을 통해 삭제불가하거나, 실행결과를 확인할 수 있다.
-    1. `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved`
-    2. 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos`
-    3. 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos`
+    1. `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved` [ ]
+    2. 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos` [ ]
+    3. 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos` [ ]
 
 ## 참여 인원
 
