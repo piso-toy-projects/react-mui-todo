@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { saveTodos, getTodayTodos } from './TodosAPI';
+import { saveTodos, getTodayTodos, formattedTime } from './TodosAPI';
 
 import { Box, Checkbox, List, Typography, ListItem, ListItemText, TextField, Button } from '@mui/material';
 import { NoteAlt, SaveAlt } from '@mui/icons-material';
@@ -55,24 +55,22 @@ export default function Todo() {
         setTodos(updatedTodos);
     };
 
-    const formatNumToTime = (time) => `${('' + time).padStart(2, '0')}:00 ~ ${('' + (time + 1)).padStart(2, '0')}:00`;
-
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
             <Typography variant="h2" component="h1">
-                Welcome Todo Page
+                오늘의 Todos는 ??
             </Typography>
-            <Alarm isAlarm={isAlarm} setIsAlarm={setIsAlarm} />
+            <Alarm isAlarm={isAlarm} setIsAlarm={setIsAlarm} msg={'오늘의 Todo를 저장했습니다.'} />
             <form onSubmit={handleFormSubmit} onChange={handleChange} style={{ width: '80%' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                     <Button
                         type="submit"
-                        variant="contained"
+                        variant="outlined"
                         endIcon={<SaveAlt />}
                         disabled={isAlarm}
                         sx={{ alignSelf: 'end' }}
                     >
-                        오늘 Todos 저장하기
+                        오늘의 Todos 저장하기
                     </Button>
                     <List sx={{ width: 1 }}>
                         {todos.map(({ time, todo, checked }) =>
@@ -85,7 +83,7 @@ export default function Todo() {
                                     <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%'}}>
                                         <NoteAlt sx={{ color: 'action.active', mr: 1, my: 0.5, fontSize:'3rem' }} />
                                         <TextField 
-                                            id="input-with-sx" name="todo" label={formatNumToTime(time)}
+                                            id="input-with-sx" name="todo" label={formattedTime(time)}
                                             sx={{flexGrow:1}} variant='outlined'
                                             maxLength={100} defaultValue={todo} disabled={checked} />
                                     </Box>
