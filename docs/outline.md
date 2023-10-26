@@ -67,13 +67,13 @@ todosList = [... ,{
 }];
 ```
 
--   `TodosList`를 localStorage에 저장, 삭제하여 기록을 관리할 수 있다. [ ]
-    1.  `TodosList`를 JSON객체로 localStorage에 저장한다. [ ]
-    1.  `TodosList`를 5분마다 자동저장한다. [ ]
-    1.  저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos` [ ]
-    1.  저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos` [ ]
-    1.  오래된 `TodosList`는 삭제 가능 `deleteOldTodos` [ ]
-    1.  **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos` [ ]
+-   `TodosList`를 localStorage에 저장, 삭제하여 기록을 관리할 수 있다.
+    1.  [ ] `TodosList`를 JSON객체로 localStorage에 저장한다.
+    1.  [ ] `TodosList`를 5분마다 자동저장한다.
+    1.  [ ] 저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos`
+    1.  [ ] 저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos`
+    1.  [ ] 오래된 `TodosList`는 삭제 가능 `deleteOldTodos`
+    1.  [ ] **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos`
 
 ### `Alaram`
 
@@ -84,9 +84,9 @@ alarms = {};
 ```
 
 -   알람을 통해 삭제불가하거나, 실행결과를 확인할 수 있다.
-    1. `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved` [ ]
-    2. 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos` [ ]
-    3. 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos` [ ]
+    1.  [ ] `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved`
+    2.  [ ] 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos`
+    3.  [ ] 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos`
 
 ## 참여 인원
 
