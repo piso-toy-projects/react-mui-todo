@@ -56,7 +56,9 @@ todo = {
 };
 ```
 
-1.  `Todo`를 체크박스로 완료여부를 확인 [ ]
+1. [ X ] `Todo`를 체크박스로 완료여부
+2. [ X ] 체크 후 수정 불가
+3. [ x ] 최대 100자까지 입력 가능
 
 ### `TodosList`
 
@@ -68,25 +70,29 @@ todosList = [... ,{
 ```
 
 -   `TodosList`를 localStorage에 저장, 삭제하여 기록을 관리할 수 있다.
-    1.  [ ] `TodosList`를 JSON객체로 localStorage에 저장한다.
-    1.  [ ] `TodosList`를 5분마다 자동저장한다.
+    1.  [ X ] `TodosList`를 JSON객체로 localStorage에 저장한다.
+    1.  [ X ] `TodosList`를 10분마다 자동저장
+        > `useEffect`,`setInterval`
     1.  [ ] 저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos`
+        > 컴퓨터를 사용하는 당일 시스템 날짜로 저장
     1.  [ ] 저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos`
+        > 임의로 날짜로 불러와 수정하거나 생성할 수 없음
     1.  [ ] 오래된 `TodosList`는 삭제 가능 `deleteOldTodos`
     1.  [ ] **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos`
 
 ### `Alaram`
 
-    -    alaram
-
-```js
-alarms = {};
-```
-
 -   알람을 통해 삭제불가하거나, 실행결과를 확인할 수 있다.
-    1.  [ ] `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved`
+    1.  [ X ] `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved`
     2.  [ ] 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos`
     3.  [ ] 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos`
+
+### 다크모드
+
+1. [ x ] 다크모드 버튼 클릭 시 라이트 / 다크 모드가 전환
+    > Material UI ( M.U.I ) [Darkmode-toggling color mode](https://mui.com/material-ui/customization/dark-mode/#toggling-color-mode)
+2. [ x ] 시스템 테마에 의해 초기 결정
+    > [Darkmode-system preference](https://mui.com/material-ui/customization/dark-mode/#system-preference)
 
 ## 참여 인원
 
