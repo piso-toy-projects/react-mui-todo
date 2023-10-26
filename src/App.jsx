@@ -1,11 +1,12 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { ThemeProvider, createTheme } from '@mui/material';
 import { useMediaQuery, CssBaseline } from '@mui/material/';
 
+import Links from './feats/Links';
 import Todo from './feats/Todo';
 import Todos from './feats/Todos';
-import { useState } from 'react';
 
 const lightTheme = createTheme();
 const darkTheme = createTheme({
@@ -25,9 +26,7 @@ function App() {
         <BrowserRouter>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Link to={'/'}>Todo</Link>
-                <Link to={'/todos'}>Todos</Link>
-                <button onClick={toggleTheme}>ss</button>
+                <Links toggleTheme={toggleTheme} theme={theme} />
                 <Routes>
                     <Route path={'/'} element={<Todo />} />
                     <Route path={'/todos'} element={<Todos />} />
