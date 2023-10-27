@@ -18,9 +18,22 @@ const todos = {
         const date = new Date();
         return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
     },
+
+    get isOldTodos() {
+        return '잘 왔습니다.';
+    },
 };
 
 export const formattedTime = (time) => `${('' + time).padStart(2, '0')}:00 ~ ${('' + (time + 1)).padStart(2, '0')}:00`;
+export const getToday = () => todos.todayId;
+
+export const deleteTodos = (time) => {
+    const timeDiff = new Date(todos.todayId.replace(/\./g, '-')) - new Date(time.replace(/\./g, '-'));
+    const isOldEnoughTodos = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) > 30;
+    if (isOldEnoughTodos)
+        localStorage.setItem('todoList', JSON.stringify(getTodosList().filter(({ id }) => time !== id)));
+    return isOldEnoughTodos;
+};
 
 export const getTodosList = () => {
     const todoList = localStorage.getItem('todoList');

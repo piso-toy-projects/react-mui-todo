@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { formattedTime, getTodosList } from './TodosAPI';
+import { deleteTodos, formattedTime, getTodosList } from './TodosAPI';
 import {
     Box,
     Button,
@@ -8,26 +8,39 @@ import {
     ListItem,
     Typography,
     Card,
-    Divider,
     CardContent,
     ListItemText,
     Chip,
 } from '@mui/material';
 
+import Alarm from './Alarm';
+
 export default function Todos() {
-    const [state, setState] = useState({ todosList: [] });
+    const [todosList, setTodosList] = useState([]);
+    const [isAlarm, setIsAlarm] = useState(false);
+    const [alarmMsg, setAlarmMsg] = useState(false);
 
     useEffect(() => {
-        setState({ todosList: getTodosList() });
+        setTodosList(getTodosList());
     }, []);
 
-    const { todosList } = state;
+    const handleDelete = (e) => {
+        const selectedTodosId = e.target.id;
+        const canDeleteTodos = deleteTodos(e.target.id);
+
+        setAlarmMsg(
+            canDeleteTodos ? `${selectedTodosId} Todos를 삭제합니다.` : '30일이 지나지 않아 삭제가 불가합니다.'
+        );
+        setIsAlarm(true);
+        if (canDeleteTodos) setTodosList(getTodosList());
+    };
 
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
             <Typography variant="h2" component="h1">
                 Todos 로그
             </Typography>
+            <Alarm isAlarm={isAlarm} setIsAlarm={setIsAlarm} msg={alarmMsg} />
             <List sx={{ width: '80%' }}>
                 {todosList.map(({ id, todos }) => (
                     <ListItem key={id} sx={{ display: 'block' }}>
@@ -55,7 +68,7 @@ export default function Todos() {
                                 </List>
                             </CardContent>
                             <CardActions sx={{ justifyContent: 'flex-end' }}>
-                                <Button size="small" variant="outlined">
+                                <Button id={id} size="small" variant="outlined" onClick={handleDelete}>
                                     로그 삭제하기
                                 </Button>
                             </CardActions>
