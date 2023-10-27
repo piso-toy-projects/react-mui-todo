@@ -25,7 +25,7 @@ export default function Links({ toggleTheme, theme }) {
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem' }}>
             {links.map(({ to, label }) => (
-                <Link component={RouterLink} to={to} underline={pathname === to ? 'always' : 'hover'}>
+                <Link key="to" component={RouterLink} to={to} underline={pathname === to ? 'always' : 'hover'}>
                     <Typography variant="h3" component={'span'}>
                         {label}
                     </Typography>
