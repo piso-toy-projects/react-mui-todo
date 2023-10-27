@@ -18,8 +18,8 @@ export default function Links({ toggleTheme, theme }) {
      * - label: 링크 텍스트
      * @type {{to: string, label: string}} */
     const links = [
-        { to: '/', label: 'Todo' },
-        { to: '/todos', label: 'Todos' },
+        { to: '/react-mui-todo', label: 'Todo' },
+        { to: '/react-mui-todo/todos', label: 'Todos' },
     ];
 
     return (
