@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { deleteTodos, formattedTime, getTodosList } from './TodosAPI';
 import {
     Box,
@@ -16,22 +16,27 @@ import {
 import Alarm from './Alarm';
 
 export default function Todos() {
-    const [todosList, setTodosList] = useState([]);
+    /** @type {React.Dispatch<React.SetStateAction<{id: string, todos: {time:string, todod:string, checked: boolean}[]}[]>>} */
+    const [todosList, setTodosList] = useState(getTodosList());
+    /** @type {React.Dispatch<React.SetStateAction<boolean>>} */
     const [isAlarm, setIsAlarm] = useState(false);
-    const [alarmMsg, setAlarmMsg] = useState(false);
+    /** @type {React.Dispatch<React.SetStateAction<string>>} */
+    const [alarmMsg, setAlarmMsg] = useState('');
 
-    useEffect(() => {
-        setTodosList(getTodosList());
-    }, []);
-
+    /**
+     * Todos 로그를 삭제하는 이벤트 함수
+     * @param {Event} e     */
     const handleDelete = (e) => {
+        /** @type {string} */
         const selectedTodosId = e.target.id;
         const canDeleteTodos = deleteTodos(e.target.id);
 
+        // 삭제 가능여부에 따라 메시지 내용을 달리해 상태를 변경.
         setAlarmMsg(
             canDeleteTodos ? `${selectedTodosId} Todos를 삭제합니다.` : '30일이 지나지 않아 삭제가 불가합니다.'
         );
         setIsAlarm(true);
+        // 삭제가 되었다면 화면을 리렌더링
         if (canDeleteTodos) setTodosList(getTodosList());
     };
 
