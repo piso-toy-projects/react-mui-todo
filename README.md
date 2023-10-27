@@ -1,5 +1,7 @@
 # Daily Todo For Work Task
 
+## [사용자 매뉴얼](./docs/manual.md)
+
 ## 프로젝트 일정
 
 -   총 기간: 10월 24일 ~ 10월 31일

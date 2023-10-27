@@ -8,8 +8,8 @@
 
 #### 10월 25일 ~ 10월 29일: 1차 개발 및 리팩토링
 
--   [ X ] 10월 25일: 메인페이지와 Todo, Todos 마크업, alarm 기능(컴포넌트)
--   [ X ] 10월 26일: `Todo`의 생성, 수정, 삭제 개발
+-   [x] 10월 25일: 메인페이지와 Todo, Todos 마크업, alarm 기능(컴포넌트)
+-   [x] 10월 26일: `Todo`의 생성, 수정, 삭제 개발
 -   [ ] 10월 27일: `TodosList`의 생성, 수정, 삭제 개발
 -   [ ] 10월 28일: `TodosList`의 검사 (삭제 가능여부, 수정 가능여부) 개발
 -   [ ] 10월 29일: 리팩토링
@@ -57,9 +57,9 @@ todo = {
 };
 ```
 
-1. [ X ] `Todo`를 체크박스로 완료여부
-2. [ X ] 체크 후 수정 불가
-3. [ x ] 최대 100자까지 입력 가능
+1. [x] `Todo`를 체크박스로 완료여부
+2. [x] 체크 후 수정 불가
+3. [x] 최대 100자까지 입력 가능
 
 ### `TodosList`
 
@@ -71,28 +71,28 @@ todosList = [... ,{
 ```
 
 -   `TodosList`를 localStorage에 저장, 삭제하여 기록을 관리할 수 있다.
-    1.  [ X ] `TodosList`를 JSON객체로 localStorage에 저장한다.
-    1.  [ X ] `TodosList`를 10분마다 자동저장
+    1.  [x] `TodosList`를 JSON객체로 localStorage에 저장한다.
+    1.  [x] `TodosList`를 10분마다 자동저장
         > `useEffect`,`setInterval`
-    1.  [ X ] 저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos`
+    1.  [x] 저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos`
         > 컴퓨터를 사용하는 당일 시스템 날짜로 저장
-    1.  [ X ] 저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos`
+    1.  [x] 저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos`
         > 임의로 날짜로 불러와 수정하거나 생성할 수 없음
-    1.  [ X ] 오래된 `TodosList`는 삭제 가능 `deleteOldTodos`
-    1.  [ X ] **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos`
+    1.  [x] 오래된 `TodosList`는 삭제 가능 `deleteOldTodos`
+    1.  [x] **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos`
 
 ### `Alaram`
 
 -   알람을 통해 삭제불가하거나, 실행결과를 확인할 수 있다.
-    1.  [ X ] `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved`
-    2.  [ X ] 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos`
-    3.  [ X ] 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos`
+    1.  [x] `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved`
+    2.  [x] 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos`
+    3.  [x] 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos`
 
 ### 다크모드
 
-1. [ x ] 다크모드 버튼 클릭 시 라이트 / 다크 모드가 전환
+1. [x] 다크모드 버튼 클릭 시 라이트 / 다크 모드가 전환
     > Material UI ( M.U.I ) [Darkmode-toggling color mode](https://mui.com/material-ui/customization/dark-mode/#toggling-color-mode)
-2. [ x ] 시스템 테마에 의해 초기 결정
+2. [x] 시스템 테마에 의해 초기 결정
     > [Darkmode-system preference](https://mui.com/material-ui/customization/dark-mode/#system-preference)
 
 ## 참여 인원
