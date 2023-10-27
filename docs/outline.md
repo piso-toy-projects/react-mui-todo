@@ -8,11 +8,11 @@
 
 #### 10월 25일 ~ 10월 29일: 1차 개발 및 리팩토링
 
--   10월 25일: 메인페이지와 Todo, Todos 마크업, alarm 기능(컴포넌트)
--   10월 26일: `Todo`의 생성, 수정, 삭제 개발
--   10월 27일: `TodosList`의 생성, 수정, 삭제 개발
--   10월 28일: `TodosList`의 검사 (삭제 가능여부, 수정 가능여부) 개발
--   10월 29일: 리팩토링
+-   [ X ] 10월 25일: 메인페이지와 Todo, Todos 마크업, alarm 기능(컴포넌트)
+-   [ X ] 10월 26일: `Todo`의 생성, 수정, 삭제 개발
+-   [ ] 10월 27일: `TodosList`의 생성, 수정, 삭제 개발
+-   [ ] 10월 28일: `TodosList`의 검사 (삭제 가능여부, 수정 가능여부) 개발
+-   [ ] 10월 29일: 리팩토링
 
 #### 10월 30일 ~ 10월 31일: 코드 설명서? 앱 설명서 작성
 
@@ -42,7 +42,8 @@
 -   하루 업무들을 정리한 Todo들을 저장하여, 기록을 볼 수도 있고, 하루를 효율적으로 나눌 수 있게 만들기
 -   `Todo` `하루의 업무량을 나눈 하나의 단위`로 시간 당 업무량 이기도 하다.
 -   `TodosList`
-    1. 저장 버튼을 눌러 그날의 투두를 저장할 수 있다. 1. 한 번 저장된 투두는 수정불가하고, 기록을 남겨둔다.
+    1. 저장 버튼을 눌러 그날의 투두를 저장할 수 있다.
+    1. 한 번 저장된 투두는 수정불가하고, 기록을 남겨둔다.
 
 ## 요구사항
 
@@ -73,19 +74,19 @@ todosList = [... ,{
     1.  [ X ] `TodosList`를 JSON객체로 localStorage에 저장한다.
     1.  [ X ] `TodosList`를 10분마다 자동저장
         > `useEffect`,`setInterval`
-    1.  [ ] 저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos`
+    1.  [ X ] 저장된 `TodosList`는 당일에는 수정이 가능 `saveTodos`
         > 컴퓨터를 사용하는 당일 시스템 날짜로 저장
-    1.  [ ] 저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos`
+    1.  [ X ] 저장된 `TodosList`는 해당 날짜와 다르다면 수정이 불가 `isTodayTodos`
         > 임의로 날짜로 불러와 수정하거나 생성할 수 없음
-    1.  [ ] 오래된 `TodosList`는 삭제 가능 `deleteOldTodos`
-    1.  [ ] **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos`
+    1.  [ X ] 오래된 `TodosList`는 삭제 가능 `deleteOldTodos`
+    1.  [ X ] **30일이 지난 기록**부터 삭제가 가능 `isOldEnoughTodos`
 
 ### `Alaram`
 
 -   알람을 통해 삭제불가하거나, 실행결과를 확인할 수 있다.
     1.  [ X ] `Todos`를 당일에 저장할시 '오늘의 Todos를 저장하였습니다. 내일부터는 수정불가합니다.' 라는 알람 `saveTodos | todoSaved`
-    2.  [ ] 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos`
-    3.  [ ] 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos`
+    2.  [ X ] 오래된 `Todos`를 삭제시 삭제 완료 알람을 띄웁니다. `saveTodos | deleteTodos`
+    3.  [ X ] 오늘이 지난지 얼마 안된 `Todos`를 삭제시 삭제 불가 경고 알람을 띄웁니다. `saveTodos | cantDeleteTodos`
 
 ### 다크모드
 
