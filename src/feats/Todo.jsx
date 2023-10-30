@@ -47,7 +47,7 @@ export default function Todo() {
         // 새로운 Todos를 생성한다.
         const newTodos = todos.map((_, idx) => ({
             time: idx + 9,
-            todo: todoInputs.map((todoInput) => todoInput.value),
+            todo: todoInputs[idx < 3 ? idx : idx - 1].value,
             checked: todoChecks[idx < 3 ? idx : idx - 1].checked,
         }));
 
