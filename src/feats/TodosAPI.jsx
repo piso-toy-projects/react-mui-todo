@@ -1,8 +1,9 @@
+/** @type {object} */
 const todos = {
     initTodos: [
         /**
          * Todo가 9시부터 10시까지 고정.
-         * So; 배열을 todos란 변수에 할당
+         * 초기 Todo
          * */
         { time: 9, todo: '', checked: false },
         { time: 10, todo: '', checked: false },
@@ -17,10 +18,6 @@ const todos = {
     get todayId() {
         const date = new Date();
         return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
-    },
-
-    get isOldTodos() {
-        return '잘 왔습니다.';
     },
 };
 
@@ -45,7 +42,7 @@ export const getTodayTodos = () => {
 };
 
 export const saveTodos = (newTodos) => {
-    const newTodosId = todos.todayId;
+    const newTodosId = getToday();
     const todosList = getTodosList();
 
     const updatedTodoList = todosList.map((todos) => (todos.id === newTodosId ? { ...todos, todos: newTodos } : todos));
