@@ -28,8 +28,8 @@ function App() {
                 <CssBaseline />
                 <Links toggleTheme={toggleTheme} theme={theme} />
                 <Routes>
-                    <Route path={'/'} element={<Todo />} />
-                    <Route path={'/todos'} element={<Todos />} />
+                    <Route path={'/react-mui-todo'} element={<Todo />} />
+                    <Route path={'/react-mui-todo/todos'} element={<Todos />} />
                 </Routes>
             </ThemeProvider>
         </BrowserRouter>
